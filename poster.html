@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Perfiles de Individualismo y su relación con el apoyo a un Líder Fuerte en la sociedad chilena</title>
+
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Nanum Gothic' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 53cm 70cm;
+margin: 2cm;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 1em;
+width: 53cm;
+height: 70cm;
+text-align: justify;
+font-size: 15pt;
+line-height: 1.05;
+}
+body strong {
+  color: #F205B9;
+}
+
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #737373 1mm;
+border-radius: 0.5em;
+padding: 4mm;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #73737324;
+color: #737373;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 15pt;
+font-style: italic;
+}
+tbody tr:nth-child(odd) {
+    background-color: #73737320;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 15pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 12pt;
+line-height: 90%;
+width: 540px;
+  height: 350px;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  background-color: #F2CB0580;
+}
+.references::before {
+  content: "Bibliografía Seleccionada";
+  font-weight: bold;
+  padding-bottom: 10px;
+  padding-left: 182px;
+  display: inline-block;
+}
+.references::after{
+  content: "Más información aquí ""\2192";
+  display: inline-block;
+  padding-left: 100px;
+  padding-right: 145px; /* Espacio para la imagen del QR, ajusta según el tamaño de tu imagen */
+  height: 100px; /* Altura del pseudo-elemento, ajusta según el tamaño de tu imagen */
+  line-height: 100px; /* Esto ayuda a centrar el texto verticalmente, ajusta según tu diseño */
+  background-image: url("imagenes/qr.png");
+  background-size: 100px 100px; /* Ajusta según el tamaño de tu imagen de QR */
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-top: 20px;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 53cm;
+height: calc(70cm *  (1 - 6/70 - 6/70 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Nanum Gothic;
+margin-top: calc(70cm *  6/70 );
+padding-top: 2em;
+padding-bottom: 2em;
+}
+span.citation {
+  color: #F205B9;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #F205B9;
+}
+#title {
+font-size: 23pt;
+text-align: left;
+margin: 0;
+padding-top: 1em;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+colour: #000000;
+}
+#author {
+color:#000000;
+margin: 0;
+line-height: 85%;
+font-size: 12pt;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 12pt;
+margin: 0;
+}
+sup {
+color: #F205B9;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #737373;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  font-size: 18pt;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #F2CB0575 33%,
+      #F2CB05 50%,
+      #F2CB0575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+font-size: 15pt;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 53cm;
+height: 6cm;
+position: absolute;
+background-color: #F2CB05;
+color: #00000090;
+font-family: Montserrat;
+background-image: linear-gradient(#F2CB05 50%,#737373);
+}
+.main strong {
+color: #000000;
+}
+.main strong > sup {
+color: #000000;
+}
+.main sup {
+color: #00000090;
+}
+#main-img-left {
+width: 53cm;
+height: 6cm;
+position: absolute; 
+}
+#main-img-center {
+width: 100%;
+height: 100%;
+left: 0;
+bottom: 0;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 30pt;
+font-family: Montserrat;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+}
+.fab {
+color: #00000060;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000060;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000060;
+font-size: 12pt;
+}
+.envelope {
+color: #00000060;
+font-size: 12pt;
+text-decoration: none;
+}
+.globe {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.globetext {
+color: #00000060;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 53cm;
+height: 70cm;
+padding: 0cm;
+}
+.main_bottom {
+width: 53cm;
+height: 6cm;
+margin-top: 66cm;
+position: absolute;
+background-color: #F2CB05;
+background-image: linear-gradient(#737373 10%, #F2CB05);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 50%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+.box {
+  width: 540px;
+  height: 530px;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  background-color: #F2CB0580;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title">Perfiles de Individualismo y su relación con el apoyo a un Líder Fuerte en la sociedad chilena</h1><br>
+<h3 id="author" class="author">
+
+Gabriel Cortés Paredes<sup> </sup><br>
+
+<a class='envelope'><i class="fas fa-envelope" style="font-size: 18pt" ></i></a> <a href="mailto:gab.cortes97@gmail.com" class="email">gab.cortes97@gmail.com</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+</h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup></sup> <br> <sup></sup> Magíster en Métodos para la Investigación Social, Universidad Diego Portales.
+</p>
+</div>
+
+
+
+<div id="introducción" class="section level1">
+<h1>Introducción</h1>
+<p>El presente trabajo busca explorar la relación entre los perfiles de individualismo y el apoyo a un líder fuerte en la sociedad chilena. En un contexto político que, tanto a nivel nacional como internacional, los liderazgos autoritarios y populistas cobran mayor relevancia, esta investigación se centró en entender como divergencias en los procesos de individuación pueden estar asociados con formas de ejercer el poder que se alejan del ideal democrático y representativo. De tal modo, se buscó arrojar luz sobre las consecuencias políticas del individualismo, en sus distintas expresiones. En particular, esta investigación se propuso como objetivo <strong>establecer la relación entre el apoyo a un líder fuerte y los distintos perfiles de individualismo</strong> en la sociedad chilena.</p>
+</div>
+<div id="conceptos-claves" class="section level1">
+<h1>Conceptos Claves</h1>
+<p><strong>Apoyo a un Líder Fuerte</strong>: Se entenderá como la demanda, por parte de los ciudadanos, de que el poder político esté concentrado en un líder, quien lo ejerce de manera personalista, con poco o nulo contrapeso por parte de otras instituciones o actores. Pese a que este tipo de liderazgos se han considerado como más comunes en regímenes autoritarios <span class="citation">(Kendall-Taylor et al., 2017)</span>, durante las últimas décadas se ha observado su auge también en democracias liberales consolidadas <span class="citation">(Kendall-Taylor et al., 2017; Lindstaedt, 2021)</span>.</p>
+<p><strong>Individualismo</strong>: Se propone una conceptualización de individualismo que toma como base la Sociología del Individuo desarrollada por <strong>Danilo Martuccelli</strong> <span class="citation">(2010)</span>. Se entenderá, pues, como los modelos de representación de la vida social que definen el rol del individuo en la sociedad. Bajo tales modelos, los individuos deben hacerse cargo de sus propias vidas en condiciones diversas de legitimidad de la acción individual, distintas representaciones culturales y autoconcepciones del individuo, y diferentes valores e imperativos estructuralmente producidos.</p>
+</div>
+<div id="metodología" class="section level1">
+<h1>Metodología</h1>
+<p><strong>Datos</strong>: 7ma Ola de la Encuesta Mundial de Valores en Chile (2018)</p>
+<p><strong>Variables</strong></p>
+<ul>
+<li><p><em>Variable Dependiente</em>: apoyo a un líder fuerte, medido a través de la valoración sobre qué tan bueno es <em>tener un líder fuerte que no se preocupe por el congreso y las elecciones</em></p></li>
+<li><p><em>Variable Independiente</em>: individualismo, una variable latente y categórica que fue construida de manera inductiva a partir de un conjunto de indicadores operacionalizados en base a las 3 dimensiones que se desprenden de la definición del concepto: a) Legitimidad de la individualidad; b) concepciones del individuo; c) Valores principales. En la <strong>Figura 1</strong> se resumen los indicadores seleccionados</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="imagenes/indicadores.png" alt="Indicadores de Individualismo" width="100%" height="570px" />
+<p class="caption">
+Figura 1: Indicadores de Individualismo
+</p>
+</div>
+<p><strong>Estrategia de Análisis</strong></p>
+<ul>
+<li><p>Se realizó un <strong>Análisis Descriptivo</strong> para establecer los niveles de apoyo a un líder fuerte en el país.</p></li>
+<li><p>A través de un <strong>Análisis de Clases Latentes</strong> (LCA) fue posible identificar de forma inductiva los perfiles de individualismo.</p></li>
+<li><p>Cada caso fue asignado a un perfil según la probabilidad de pertenencia estimada por el modelo. De tal modo, se creó una variable categórica de individualismo. Esta nueva variable sirvió como predictor en una <strong>Regresión Logística</strong> con el fin de establecer su relación con el apoyo a un Líder Fuerte</p></li>
+</ul>
+</div>
+<div id="resultados" class="section level1">
+<h1>Resultados</h1>
+<p>El <strong>44% de los chilenos considera que es bueno o muy bueno contar con un líder fuerte en el país</strong>. Si bien esta cifra es baja a nivel latinoamericano, como se expone en la <strong>Figura 2</strong>, se observa un alza sostenida desde el año 2006 a nivel nacional.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="poster_files/figure-html/unnamed-chunk-2-1.png" alt="Apoyo a Líder Fuerte en América (7ma Ola) y en Chile (1996-2018)" width="100%" />
+<p class="caption">
+Figura 2: Apoyo a Líder Fuerte en América (7ma Ola) y en Chile (1996-2018)
+</p>
+</div>
+<p><strong>Se identificó un modelo de 4 perfiles de individualismo</strong>, siguiendo criterios estadísticos y teóricos (Parámetros Estimados = 71; <span class="math inline">\(G^2\)</span>= 3016,5 (df=642); <span class="math inline">\(AIC\)</span>=11.812; <span class="math inline">\(BIC\)</span>=12.136). Las principales características de cada perfil se resumen en la <strong>Figura 3</strong> a continuación.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="poster_files/figure-html/unnamed-chunk-3-1.png" alt="Modelo de Clases Latentes de Individualismo (4 clases)" width="100%" />
+<p class="caption">
+Figura 3: Modelo de Clases Latentes de Individualismo (4 clases)
+</p>
+</div>
+<div id="los-4-perfiles-de-individualismo" class="section level2 box">
+<h2>Los 4 perfiles de Individualismo</h2>
+<p>El <strong>Individualismo Autoritario</strong> se caracteriza por su rechazo a la individualidad en todas las esferas. Muestra una clara preferencia por la seguridad por sobre la libertad (73%) y los niveles más bajos de independencia e interdepedencia colectiva. Solo el 14% tiene menos de 14 años y 48% pertenece a la clase trabajadora.</p>
+<p>El <strong>Individualismo Conservador</strong> rechaza la individualidad en la esfera expresiva, pero muestra una alta legitimación de la individualidad en la esfera moral. 28% tiene más de 60 años, 67% son católicos y 36% se identifica con la centroderecha</p>
+<p>El <strong>Individualismo Liberal</strong> demuestra una alta legitimación de la individualidad en las esferas expresiva y moral. Son el único grupo que prefiere la libertad por sobre la seguridad. 36% no tiene afiliación religiosa y un 37% pertenece a las clases intermedias</p>
+<p>El <strong>Individualismo Estratégico</strong> es el único perfil que legitima la acción estratégica. Además, demuestran una alta legitimación de la individualidad en las esferas expresiva y moral. 28% tiene 30 años o menos.</p>
+</div>
+<p>El nivel de apoyo a un Líder Fuerte es mayor entre los individualistas autoritarios y estratégicos (53% para ambos). Mediante una regresión logística se concluyó que, una vez controlado por las demás variables, <strong>existe una asociación positiva y significativa entre ser un individualista autoritario</strong> (<span class="math inline">\(OR\)</span>=3,1; <span class="math inline">\(p\)</span>&lt;0,001) <strong>o estratégico</strong> (<span class="math inline">\(OR\)</span>=2,9; <span class="math inline">\(p\)</span>&lt;0,001) y <strong>el apoyo a un líder fuerte</strong>.</p>
+<p>Asimismo, <strong>se observaron diferencias en la participación política entre perfiles</strong>. Como se aprecia en la <strong>Figura 4</strong>, los perfiles de individualismo que reportaron menor participación en las elecciones presidenciales de 2017 se corresponden con aquellas que muestran un mayor apoyo a un líder fuerte.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="poster_files/figure-html/unnamed-chunk-4-1.png" alt="Perfiles de Individualismo por participación política" width="100%" />
+<p class="caption">
+Figura 4: Perfiles de Individualismo por participación política
+</p>
+</div>
+</div>
+<div id="conclusiones" class="section level1">
+<h1>Conclusiones</h1>
+<p>Los altos niveles de independencia, así como de interdependencia relacional y colectiva son <strong>transversales a los 4 perfiles identificados</strong>. Estas son características consistentes con la descripción del <strong>Individualismo agéntico y el hiper-actor relacional</strong> de <strong>Araujo y Martuccelli</strong> <span class="citation">(2020)</span>. Con todo, el aporte de esta investigación es que fue posible observar cómo este modelo <strong>diverge dentro de la sociedad chilena</strong>. De tal modo, este enfoque permite apreciar los matices y las divergencias de los procesos de individuación en Chile.</p>
+<p>Mientras dos de los perfiles muestran una asociación negativa con el apoyo a un líder fuerte (el conservador y el liberal), otros dos muestran una positiva (el estratégico y el autoritario). Esto se relaciona, además, con diferencias en la participación política. Se propone que a los primeros se les podría denominar como <strong>individualismos cívicos</strong>, mientras que a los segundos como <strong>hiperindividualismos</strong></p>
+<blockquote>
+<p>Para los individualistas cívicos <strong>la individualidad estaría vinculada a la pertenencia a la comunidad política.</strong></p>
+</blockquote>
+<blockquote>
+<p>Para los hiperindividualistas, <strong>lo público aparece como un desafío</strong>, un obstáculo que se debe evitar ya sea mediante la sumisión de la individualidad a un orden normativo o mediante la maximización de sus habilidades personales.</p>
+</blockquote>
+<p>Aunque estos hallazgos son consistentes con aquellos que han indicado el mayor autoritarismo y conservadurismo de los nuevos votantes <span class="citation">(COES, 2023)</span>, cabe preguntarse si es la única explicación posible. Las características del Individualismo Estratégico no apuntan tanto a un mayor autoritarismo, sino a un <strong>mayor pragmatismo en la esfera pública</strong>, donde la autoridad política estaría sostenida por la eficiencia de los liderazgos para cumplir sus tareas <span class="citation">(Araujo et al., 2022)</span>.</p>
+<p>Esta investigación sugiere que la relación entre el individualismo y el apoyo a líderes fuertes es significativa, pero divergente entre distintos grupos: <strong>Diferentes formas de individualismo se asociarían a la preferencia por distintas maneras de ejercer la autoridad</strong>. Mientras que los individualistas cívicos parecen valorar una visión más representativa de la democracia, los hiperindividualistas favorecen un enfoque más pragmático y apático hacia la esfera pública.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-araujo2020" class="csl-entry">
+Araujo, K., &amp; Martuccelli, D. (2020). Leer los movimientos sociales desde el individualismo: <span>Reflexiones</span> a partir de <span class="nocase">Latinoam<span class="nocase">é</span>rica</span>. <em>Educa<span>ç</span><span>ã</span>o &amp; Sociedade</em>, <em>41</em>, e228265. <a href="https://doi.org/10.1590/es.228265">https://doi.org/10.1590/es.228265</a>
+</div>
+<div id="ref-araujo2022" class="csl-entry">
+Araujo, K., Orchard, M., Rasse, A., &amp; Stecher, A. (2022). <em>Primer <span>Informe</span> de <span>Resultados Encuesta Nacional</span> de <span>Autoridad NUMAAP</span> 2021</em>. NUMAAP.
+</div>
+<div id="ref-coes2023" class="csl-entry">
+COES. (2023). <em>Radiograf<span>í</span>a del <span>Cambio Social</span> en <span>Chile</span> 2016-2022. <span>Estudio Longitudinal Social</span> de <span>Chile</span>. <span class="nocase">Presentaci<span class="nocase">ó</span>n</span> de <span>Resultados COES</span>.</em> Centro de Estudios de Conflicto y Cohesi<span>ó</span>n Social.
+</div>
+<div id="ref-kendall-taylor2017" class="csl-entry">
+Kendall-Taylor, A., Frantz, E., &amp; Wright, J. (2017). The <span>Global Rise</span> of <span>Personalized Politics</span>: <span>It</span>’s <span>Not Just Dictators Anymore</span>. <em>The Washington Quarterly</em>, <em>40</em>(1), 7–19. <a href="https://doi.org/10.1080/0163660X.2017.1302735">https://doi.org/10.1080/0163660X.2017.1302735</a>
+</div>
+<div id="ref-lindstaedt2021" class="csl-entry">
+Lindstaedt, N. (2021). The <span>Current Landscape</span>. In <em>Democratic <span>Decay</span> and <span>Authoritarian Resurgence</span></em> (pp. 17–61). Bristol University Press.
+</div>
+<div id="ref-martuccelli2010" class="csl-entry">
+Martuccelli, D. (2010). <em><span><span></span>Existen individuos en el sur?</span></em> LOM.
+</div>
+</div>
+</div>
+
+</div>
+<div class="main">
+<p><p>Se identificaron <strong>4 perfiles de individualismo</strong>: Autoritario, Estratégico, Liberal y Conservador.
+Los resultados sugieren que la relación entre <strong>individualismo</strong> y el apoyo a un <strong>líder fuerte</strong> es <strong>significativa</strong> pero <strong>divergente</strong> entre distintos perfiles</p></p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=imagenes/logo.jpeg>
+<img id="main-img-center" src=>
+<img id="main-img-right" src=>
+</div>
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+
+
+</body>
+</html>
